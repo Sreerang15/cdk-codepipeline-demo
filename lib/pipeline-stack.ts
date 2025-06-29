@@ -5,6 +5,8 @@ import { AppStage } from './app-stage';
 import * as cdk from 'aws-cdk-lib';
 import { GitHubTrigger } from 'aws-cdk-lib/aws-codepipeline-actions';
 
+const s = "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"
+
 export class PipelineStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
@@ -15,7 +17,7 @@ export class PipelineStack extends Stack {
       pipelineName: 'SimplePipeline2',
       synth: new ShellStep('SynthStep', {
         input: CodePipelineSource.gitHub('Sreerang15/cdk-codepipeline-demo', 'master', {
-          authentication: cdk.SecretValue.plainText('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'),
+          authentication: cdk.SecretValue.plainText(s),
           trigger: GitHubTrigger.NONE
         }),
         commands: [
