@@ -7,12 +7,14 @@ import * as cdk from 'aws-cdk-lib';
 export class PipelineStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
+    console.log("lk",cdk.SecretValue.secretsManager('arn:aws:secretsmanager:ap-south-1:807157871082:secret:githubtoken-G3usqh'));
+    
 
     const pipeline = new CodePipeline(this, 'MyPipeline', {
       pipelineName: 'SimplePipeline',
       synth: new ShellStep('SynthStep', {
         input: CodePipelineSource.gitHub('Sreerang15/cdk-codepipeline-demo', 'master', {
-          authentication: cdk.SecretValue.secretsManager('githubtoken'),
+          authentication: cdk.SecretValue.secretsManager('arn:aws:secretsmanager:ap-south-1:807157871082:secret:githubtoken-G3usqh'),
         }),
         commands: [
           'npm ci',
