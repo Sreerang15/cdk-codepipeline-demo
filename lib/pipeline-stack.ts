@@ -17,7 +17,7 @@ export class PipelineStack extends Stack {
       pipelineName: 'SimplePipeline2',
       synth: new ShellStep('SynthStep', {
         input: CodePipelineSource.gitHub('Sreerang15/cdk-codepipeline-demo', 'master', {
-          authentication: cdk.SecretValue.plainText(s),
+          authentication: cdk.SecretValue.unsafePlainText(s),
           trigger: GitHubTrigger.NONE
         }),
         commands: [
