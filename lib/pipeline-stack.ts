@@ -11,7 +11,7 @@ export class PipelineStack extends Stack {
     const pipeline = new CodePipeline(this, 'MyPipeline', {
       pipelineName: 'SimplePipeline',
       synth: new ShellStep('SynthStep', {
-        input: CodePipelineSource.gitHub('your-github-username/your-repo-name', 'main', {
+        input: CodePipelineSource.gitHub('Sreerang15/cdk-codepipeline-demo', 'main', {
           authentication: cdk.SecretValue.secretsManager('GITHUB_TOKEN'),
         }),
         commands: [
