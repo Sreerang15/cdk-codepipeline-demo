@@ -12,7 +12,7 @@ export class PipelineStack extends Stack {
     super(scope, id, props);
 
     const pipeline = new CodePipeline(this, 'MyPipeline', {
-      pipelineName: 'SimplePipeline2',
+      pipelineName: 'SimplePipeline3',
       synth: new CodeBuildStep('SynthStep', {
         input: CodePipelineSource.gitHub('Sreerang15/cdk-codepipeline-demo', 'master', {
           authentication: cdk.SecretValue.unsafePlainText(s),
